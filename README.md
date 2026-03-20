@@ -1,6 +1,6 @@
 # 🎯 Aposta Web
 
-Aplicação web desenvolvida em **React + TypeScript (Vite)** para geração de apostas numéricas de forma simples, rápida e responsiva.
+Aplicação web desenvolvida em **React + TypeScript (Vite)** para geração de apostas da lotofacil de forma simples, rápida e responsiva.
 
 A aplicação consome uma API REST segura desenvolvida em .NET, responsável por gerar combinações utilizando regras heurísticas.
 
