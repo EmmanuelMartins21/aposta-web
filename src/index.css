@@ -1,0 +1,23 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Background com gradiente */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1f1f1f, #3a3a3a, #6b6b6b);
+  color: #fff;
+}
+
+/* Container central */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
