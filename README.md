@@ -1,73 +1,146 @@
-# React + TypeScript + Vite
+# 🎯 Aposta Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web desenvolvida em **React + TypeScript (Vite)** para geração de apostas numéricas de forma simples, rápida e responsiva.
 
-Currently, two official plugins are available:
+A aplicação consome uma API REST segura desenvolvida em .NET, responsável por gerar combinações utilizando regras heurísticas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌐 Acesso
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🔗 Frontend (Vercel):  
+https://aposta-web.vercel.app/
 
-## Expanding the ESLint configuration
+🔗 API (Render):  
+Documentação swagger apenas em DEV.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Funcionalidades
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Geração de apostas com 1 clique
+- Exibição de 3 apostas simultâneas
+- Interface responsiva (mobile-first)
+- Integração com API segura via JWT
+- Consumo de API via Axios
+- Layout moderno com gradiente em tons de cinza
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧠 Como funciona
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+O frontend realiza:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Autenticação na API (`/api/v1/login`)
+2. Recebimento de um token JWT
+3. Requisição protegida para:
+   GET /api/v1/apostas
+4. Exibição dos resultados na tela
+
+---
+
+## 🔐 Segurança
+
+- Autenticação via JWT
+- Token enviado no header:
+  Authorization: Bearer {token}
+- Variáveis sensíveis protegidas via `.env` (não versionado)
+- CORS configurado no backend para permitir apenas o domínio do Vercel
+
+---
+
+## ⚙️ Configuração local
+
+### 1. Clone o repositório
+
+git clone https://github.com/seu-usuario/aposta-web.git
+cd aposta-web
+
+### 2. Instale as dependências
+
+npm install
+
+### 3. Configure o ambiente
+
+Crie um arquivo `.env`:
+
+VITE_API_URL=https://sua-api.onrender.com
+
+### 4. Execute o projeto
+
+npm run dev
+
+---
+
+## 📦 Build para produção
+
+npm run build
+
+Preview local:
+
+npm run preview
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- React
+- TypeScript
+- Vite
+- Axios
+- CSS (custom, responsivo)
+- JWT (autenticação)
+- .NET 10 (backend)
+- Render (API)
+- Vercel (frontend)
+
+---
+
+## 📡 Estrutura do projeto
+
+src/
+ ├── pages/
+ │    └── Home.tsx
+ ├── services/
+ │    └── api.ts
+ ├── types/
+ │    └── aposta.ts
+ └── App.tsx
+
+---
+
+## 🔄 Fluxo da aplicação
+
+Usuário (Vercel)
+   ↓
+React App
+   ↓
+Axios (JWT)
+   ↓
+API .NET (Render)
+   ↓
+Geração de apostas
+
+---
+
+## ⚠️ Observações
+
+- A API hospedada no Render pode entrar em modo de inatividade (cold start)
+- A primeira requisição pode levar alguns segundos
+- Todas as apostas possuem a mesma probabilidade matemática
+
+---
+
+## 📌 Melhorias futuras
+
+- Tela de login real
+- Refresh token
+- Animações e UX aprimorada
+- Histórico de apostas
+- PWA
+
+---
+
+## 👨‍💻 Autor
+
+Emmanuel Martins
